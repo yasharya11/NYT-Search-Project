@@ -11,23 +11,25 @@ $("#search").on("click", function () {
         'begin_date': startYear,
         'end_date': endYear
     });
+
+
     $.ajax({
         url: url,
         method: 'GET'
     }).done(function (result) {
         for (var i = 0; i < limitRecords; i++) {
-            var title = result.response.docs[i].headline.main;
+            var aTitle = result.response.docs[i].headline.main;
             var author = result.response.docs[i].byline.original;
             var publicationDate = result.response.docs[i].pub_date;
             var articleLink = result.response.docs[i].web_url;
 
             console.log((i+1)+"))))/////////////////////");
-            console.log(title);
+            console.log(result);
             console.log(author);
             console.log(publicationDate);
             console.log(articleLink);
 
-            $("#articles").append("<div class='articleBody'><div class='articleTitle>"+title+"</div><div class='articleAuthor'>"+author+"</div></div>")
+            $("#articles").append("<div class='articleBody'><div class='articleTitle>"+aTitle+"</div><div class='articleAuthor'>"+author+"</div><div class='articlePublicationDate'>"+publicationDate+"</div><div class='articleLink'>"+articleLink+"</div></div>")
         }
     }).fail(function (err) {
         throw err
