@@ -4,27 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>New York Times Search Project</title>
+    <title>NYT Search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 </head>
+
 <body>
-    <script>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body header text-center">
+                New York Times Search
+            </div>
+        </div>
 
-var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-url += '?' + $.param({
-  'api-key': "0248edaaa01447969a49a7fc8a67657b"
-});
-$.ajax({
-  url: url,
-  method: 'GET',
-}).done(function(result) {
-  console.log(result);
-}).fail(function(err) {
-  throw err;
-});
-    </script>
 
-    
+        <div class="panel panel-default form">
+            <div class="panel-heading">
+                <h3 class="panel-title">Search Parameters</h3>
+            </div>
+            <div class="panel-body">
+                <label for="search-term">Search Term:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="search-term">
+                </div>
+                <label for="number-records">Number of Records to Retrieve:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="number-records">
+                </div>
+                <label for="start-year">Start Year (Optional):</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="start-year">
+                </div>
+                <label for="end-year">End Year (Optional):</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="end-year">
+                </div>
+                <br>
+                <button type="button" class="btn btn-default" id="search">
+
+                    <span class="glyphicon glyphicon-search" aria-hidden="true">
+                    </span>
+
+                    Search</button>
+                <button type="button" class="btn btn-default" id="clear">
+                    
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    
+                    Clear Results</button>
+            </div>
+        </div>
+
+        <div class="panel panel-default results">
+            <div class="panel-heading">
+                <h3 class="panel-title">Top Articles</h3>
+            </div>
+            
+            <div class="panel-body" id="articles">
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
 </body>
+<script src="assets/javascript/app.js"></script>
+
 </html>
