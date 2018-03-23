@@ -1,9 +1,16 @@
-$("#search").on("click", function () {
-    var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-    var limitRecords = 5; //this will be changed to form input
-    var searchTerm = "Bitcoins"; //this will be changed to form input
-    var startYear = 20000506; //this will be changed to form input
-    var endYear = 20180606; //this will be changed to form input
+
+var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+
+$("#search").on("click", function () { 
+    var searchTerm = $("#search-term").val();
+    var startYear = $("#start-year").val();
+    var endYear = $("#end-year").val();
+    var limitRecords = parseInt($("#number-records").val());
+    alert(limitRecords);
+    limitRecords = limitRecords; 
+    searchTerm = searchTerm; 
+    startYear = startYear + "0101"; 
+    endYear = endYear + "0101"; 
 
     url += '?' + $.param({
         'api-key': "0248edaaa01447969a49a7fc8a67657b",
@@ -27,7 +34,18 @@ $("#search").on("click", function () {
             console.log(publicationDate);
             console.log(articleLink);
 
-            $("#articles").append("<div class='articleBody'><div class='articleTitle>"+title+"</div><div class='articleAuthor'>"+author+"</div></div>")
+            //$("#articles").append("<div class='articleBody'><div class='articleTitle>"+title+"</div><div class='articleAuthor'>"+author+"</div></div>")
+            var articleBody = $("<div class='articleBody'>");
+            var articleTitle = $("<div class='articleTitle'>");
+            articleTitle.text(title);
+            var articleAuthor = $("<div class='articleAuthor'>");
+            articleAuthor.text(author);
+            
+            articleBody.append(articleTitle);
+            articleBody.append(articleAuthor);
+
+            $("#articles").append(articleBody);
+
         }
     }).fail(function (err) {
         throw err
