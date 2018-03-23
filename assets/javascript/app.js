@@ -24,12 +24,12 @@ $("#search").on("click", function () {
             var articleLink = result.response.docs[i].web_url;
 
             console.log((i+1)+"))))/////////////////////");
-            console.log(result);
+            console.log(aTitle);
             console.log(author);
             console.log(publicationDate);
             console.log(articleLink);
 
-            $("#articles").append("<div class='articleBody'><div class='articleTitle>"+aTitle+"</div><div class='articleAuthor'>"+author+"</div><div class='articlePublicationDate'>"+publicationDate+"</div><div class='articleLink'>"+articleLink+"</div></div>")
+            $("#articles").append("<div class='articleBody'><div class='articleTitle'>"+aTitle+"</div><div class='articleAuthor'>"+author+"</div><div class='articlePublicationDate'>"+publicationDate+"</div><div class='articleLink'>"+articleLink+"</div></div>");
         }
     }).fail(function (err) {
         throw err
