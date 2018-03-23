@@ -1,7 +1,8 @@
 
-var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+
 
 $("#search").on("click", function () { 
+    var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
     var searchTerm = $("#search-term").val();
     var startYear = $("#start-year").val();
     var endYear = $("#end-year").val();
