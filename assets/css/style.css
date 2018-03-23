@@ -5,15 +5,26 @@
 
 .header {
     font-size: 40px;
-    background-color: rgb(17, 17, 97);
+    background-color: #151550;
     color: white;
     padding: 30px;
 }
 
 .panel-heading {
-    background-color: rgb(17, 17, 97) !important;
+    background-color: rgb(14, 14, 46) !important;
 }
 
 h3 {
     color: white !important;
+}
+
+.articleBody {
+    background-color: rgb(233, 233, 233);
+    margin: 10px;
+    padding: 20px;
+    
+}
+
+.articleTitle {
+    font-weight: bold;
 }
